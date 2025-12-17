@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+
+          <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahjabeen | Portfolio</title>
+    <title>Mahjabeen - Web Designer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -14,191 +15,146 @@
         }
         
         body {
-            line-height: 1.6;
+            background-color: #f8f9fa;
             color: #333;
-            background-color: #f9f9f9;
+            line-height: 1.6;
         }
         
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
         
-        /* Header Styles */
+        /* Header Section */
         header {
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #2c3e50;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #3498db;
-        }
-        
-        /* Mobile Menu Button */
-        .menu-toggle {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #2c3e50;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 150px 0 100px;
-            text-align: center;
-            background: linear-gradient(135deg, #3498db, #2c3e50);
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
             color: white;
+            padding: 30px 0;
+            text-align: center;
         }
         
-        .hero h1 {
-            font-size: 48px;
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
             margin-bottom: 20px;
+            letter-spacing: 2px;
         }
         
-        .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto 30px;
+        .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 300;
         }
         
         .btn {
             display: inline-block;
-            background: #fff;
-            color: #3498db;
-            padding: 12px 30px;
-            border-radius: 30px;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 15px 35px;
             text-decoration: none;
+            border-radius: 50px;
             font-weight: 600;
-            transition: all 0.3s;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .btn:hover {
-            background: #f1f1f1;
+            background-color: #ff5252;
             transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
         
         /* About Section */
         .section {
-            padding: 100px 0;
+            padding: 80px 0;
         }
         
         .section-title {
             text-align: center;
+            font-size: 2.5rem;
             margin-bottom: 50px;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            color: #2c3e50;
+            color: #2575fc;
             position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
         }
         
-        .section-title h2::after {
+        .section-title:after {
             content: '';
             position: absolute;
-            width: 50%;
-            height: 3px;
-            background: #3498db;
-            bottom: 0;
-            left: 25%;
+            width: 80px;
+            height: 4px;
+            background-color: #ff6b6b;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
         }
         
         .about-content {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
-            gap: 50px;
+            gap: 40px;
         }
         
         .about-text {
             flex: 1;
+            min-width: 300px;
+            font-size: 1.1rem;
         }
         
-        .about-text h3 {
-            font-size: 24px;
+        .about-text p {
             margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-        .about-image {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .profile-img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #3498db;
-            max-width: 100%;
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
         
         /* Skills Section */
-        .skills {
-            background: #f1f1f1;
-        }
-        
         .skills-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
             gap: 30px;
+            justify-content: center;
         }
         
-        .skill {
-            background: white;
+        .skill-card {
+            background-color: white;
+            border-radius: 15px;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            width: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             text-align: center;
-            width: 200px;
-            transition: transform 0.3s;
+            transition: transform 0.3s ease;
         }
         
-        .skill:hover {
+        .skill-card:hover {
             transform: translateY(-10px);
         }
         
-        .skill i {
-            font-size: 40px;
-            color: #3498db;
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #2575fc;
+        }
+        
+        .skill-title {
+            font-size: 1.5rem;
             margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .skill-desc {
+            color: #666;
+            font-size: 1rem;
         }
         
         /* Projects Section */
@@ -206,414 +162,299 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
+            margin-top: 40px;
         }
         
-        .project {
-            background: white;
-            border-radius: 10px;
+        .project-card {
+            background-color: white;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
         }
         
-        .project:hover {
+        .project-card:hover {
             transform: translateY(-10px);
         }
         
-        .project-img, .project video {
-            width: 100%;
+        .project-placeholder {
             height: 200px;
-            object-fit: cover;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
         }
         
         .project-info {
-            padding: 20px;
+            padding: 25px;
         }
         
-        .project-info h3 {
+        .project-title {
+            font-size: 1.4rem;
             margin-bottom: 10px;
-            color: #2c3e50;
+            color: #333;
         }
         
-        /* Contact Section */
-        .contact {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-        }
-        
-        .contact .section-title h2 {
-            color: white;
-        }
-        
-        .contact-info {
-            padding: 20px;
-            font-size: 20px;
+        .project-desc {
+            color: #666;
+            font-size: 1rem;
         }
         
         /* Footer */
         footer {
-            background: #1a252f;
+            background-color: #333;
             color: white;
             text-align: center;
-            padding: 30px 0;
+            padding: 40px 0;
+            margin-top: 60px;
         }
         
-        .social-links {
+        .footer-text {
+            font-size: 1.1rem;
             margin-bottom: 20px;
         }
         
-        .social-links a {
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
             color: white;
-            font-size: 20px;
-            margin: 0 10px;
-            transition: color 0.3s;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
         }
         
-        .social-links a:hover {
-            color: #3498db;
+        .social-icons a:hover {
+            color: #ff6b6b;
         }
         
-        /* Responsive Design - Mobile First */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            /* Mobile Menu */
-            .menu-toggle {
-                display: block;
+            h1 {
+                font-size: 2.5rem;
             }
             
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: all 0.3s ease;
+            .tagline {
+                font-size: 1.4rem;
             }
             
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
+            .header-content {
+                min-height: 60vh;
             }
             
-            .nav-links li {
-                margin: 15px 0;
-            }
-            
-            /* Hero Section */
-            .hero {
-                padding: 120px 0 80px;
-            }
-            
-            .hero h1 {
-                font-size: 32px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-                padding: 0 15px;
-            }
-            
-            /* About Section - Column Reverse */
-            .about-content {
-                flex-direction: column-reverse;
-                gap: 30px;
-            }
-            
-            .about-text {
-                order: 2;
-                text-align: center;
-            }
-            
-            .about-image {
-                order: 1;
-            }
-            
-            .profile-img {
-                width: 250px;
-                height: 250px;
-            }
-            
-            /* Skills Section - Column Wrap */
-            .skills-container {
-                flex-direction: column;
-                align-items: center;
-                flex-wrap: wrap;
-                gap: 20px;
-            }
-            
-            .skill {
-                width: 100%;
-                max-width: 300px;
-                padding: 20px;
-            }
-            
-            /* Projects Section - Single Column */
-            .projects-container {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .project {
-                width: 100%;
-            }
-            
-            /* Contact Section */
-            .contact-info {
-                font-size: 18px;
-                padding: 10px;
-            }
-            
-            /* Section Padding */
             .section {
-                padding: 60px 0;
-            }
-            
-            .section-title h2 {
-                font-size: 28px;
+                padding: 50px 0;
             }
             
             .section-title {
-                margin-bottom: 30px;
-            }
-        }
-        
-        /* Small Mobile Devices */
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 28px;
+                font-size: 2rem;
             }
             
-            .hero p {
-                font-size: 16px;
-            }
-            
-            .btn {
-                padding: 10px 25px;
-                font-size: 14px;
-            }
-            
-            .profile-img {
-                width: 200px;
-                height: 200px;
-            }
-            
-            .about-text h3 {
-                font-size: 20px;
-            }
-            
-            .section-title h2 {
-                font-size: 24px;
-            }
-            
-            .skill i {
-                font-size: 32px;
-            }
-            
-            .social-links a {
-                font-size: 18px;
-                margin: 0 5px;
-            }
-        }
-        
-        /* Tablet Devices */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .container {
-                padding: 0 30px;
-            }
-            
-            .skills-container {
-                justify-content: space-around;
-            }
-            
-            .skill {
-                width: 180px;
+            .skill-card {
+                width: 100%;
+                max-width: 400px;
             }
             
             .projects-container {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
+            }
+            
+            .about-text {
+                min-width: 100%;
             }
         }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .about-text p {
+                font-size: 1rem;
+            }
+            
+            .skill-card {
+                padding: 20px;
+            }
+        }
+        
+        /* Horizontal Rule Styling */
+        .divider {
+            height: 4px;
+            width: 80%;
+            background: linear-gradient(to right, transparent, #6a11cb, transparent);
+            margin: 40px auto;
+            border-radius: 2px;
+        }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header Section -->
     <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Mahjabeen</div>
-                <div class="menu-toggle" id="menuToggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Hi, I'm Mahjabeen</h1>
-            <p>A passionate web developer creating beautiful and functional websites</p>
+        <div class="container header-content">
+            <h1>Mahjabeen</h1>
+            <div class="tagline">A passionate web designer</div>
             <a href="#projects" class="btn">View My Work</a>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section" id="about">
+    </header>
+    
+    <!-- About Me Section -->
+    <section class="section">
         <div class="container">
-            <div class="section-title">
-                <h2>About Me</h2>
-            </div>
+            <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Hello! I'm Mahjabeen, a web designer.</h3>
-                    <p>I have a passion for creating clean, beautiful, and user-friendly websites Design. I specialize in HTML and CSS.</p>
+                    <p>Hello! I'm Mahjabeen, a web designer.</p>
+                    <p>I have a passion for creating clean, beautiful, and user-friendly websites. I specialize in HTML and CSS.</p>
                     <p>When I'm not coding, you can find me exploring new technologies, reading tech blogs, or hiking in the mountains.</p>
-                    <p>Currently I'm student of intermediate and on the other hand I'm doing web development course in Saylani IT Park</p>
-                </div>
-                <div class="about-image">
-                    <img src="pm_1763646996057_cmp.jpg" alt="Mahjabeen" class="profile-img">
+                    <p>Currently I'm a student of Intermediate and on the other hand I'm doing web development course in Saylani IT Park.</p>
                 </div>
             </div>
         </div>
     </section>
-
+    
+    <div class="divider"></div>
+    
     <!-- Skills Section -->
-    <section class="section skills" id="skills">
+    <section class="section">
         <div class="container">
-            <div class="section-title">
-                <h2>My Skills</h2>
-            </div>
+            <h2 class="section-title">My Skills</h2>
             <div class="skills-container">
-                <div class="skill">
-                    <i class="fab fa-html5"></i>
-                    <h3>HTML5</h3>
-                    <p>Semantic markup and accessibility</p>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3 class="skill-title">HTML5</h3>
+                    <p class="skill-desc">Semantic markup and accessibility</p>
                 </div>
-                <div class="skill">
-                    <i class="fab fa-css3-alt"></i>
-                    <h3>CSS3</h3>
-                    <p>Responsive design and animations</p>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h3 class="skill-title">CSS3</h3>
+                    <p class="skill-desc">Responsive design and animations</p>
                 </div>
-                <div class="skill">
-                    <i class="fab fa-js"></i>
-                    <h3>Clean Code</h3>
-                    <p>for beautiful web experiences</p>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <h3 class="skill-title">JavaScript</h3>
+                    <p class="skill-desc">Interactive and dynamic web experiences</p>
                 </div>
             </div>
         </div>
     </section>
-
+    
+    <div class="divider"></div>
+    
     <!-- Projects Section -->
-    <section class="section" id="projects">
+    <section id="projects" class="section">
         <div class="container">
-            <div class="section-title">
-                <h2>My Projects</h2>
-            </div>
+            <h2 class="section-title">My Projects</h2>
             <div class="projects-container">
-                <div class="project">
-                    <video src="Parfumerie De Reve (1).mp4" alt="Project 1" controls class="project-img">
+                <div class="project-card">
+                    <div class="project-placeholder">
+                        <span>Portfolio Website</span>
+                    </div>
                     <div class="project-info">
-                        <h3>E-commerce Website</h3>
-                        <p>A fully responsive online store with shopping cart functionality.</p>
+                        <h3 class="project-title">Personal Portfolio</h3>
+                        <p class="project-desc">A responsive portfolio website built with HTML, CSS and JavaScript to showcase my work.</p>
                     </div>
                 </div>
-                <div class="project">
-                    <video src="Document (2).mp4" alt="Project 2" controls class="project-img">
+                
+                <div class="project-card">
+                    <div class="project-placeholder">
+                        <span>E-commerce UI</span>
+                    </div>
                     <div class="project-info">
-                        <h3>Flower bouquet website</h3>
-                        <p>Design a bouquet off your choice</p>
+                        <h3 class="project-title">Online Store Design</h3>
+                        <p class="project-desc">A clean and modern e-commerce interface design with focus on user experience.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-placeholder">
+                        <span>Blog Template</span>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Responsive Blog</h3>
+                        <p class="project-desc">A fully responsive blog template with clean typography and mobile-friendly layout.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contact</h2>
-            </div>
-            <div class="contact-info">
-                <h3>Email me: awananna105@gmail.com</h3>
-            </div>
-        </div>
-    </section>
-
+    
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="social-links">
+            <p class="footer-text">© 2023 Mahjabeen. All rights reserved.</p>
+            <p class="footer-text">Let's create something amazing together!</p>
+            <div class="social-icons">
                 <a href="#"><i class="fab fa-linkedin"></i></a>
                 <a href="#"><i class="fab fa-github"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
-            <p>&copy; 2025 Mahjabeen. All rights reserved.</p>
         </div>
     </footer>
-
+    
     <script>
-        // Mobile Menu Toggle
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-            
-            // Change menu icon
-            const icon = this.querySelector('i');
-            if (icon.classList.contains('fa-bars')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-        
-        // Close menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-links a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                const navLinks = document.getElementById('navLinks');
-                const menuToggle = document.getElementById('menuToggle');
-                const icon = menuToggle.querySelector('i');
-                
-                navLinks.classList.remove('active');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            });
-        });
-        
-        // Smooth scrolling for anchor links
+        // Simple script for smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
+                if(targetId === '#') return;
                 
                 const targetElement = document.querySelector(targetId);
-                if (targetElement) {
+                if(targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
                 }
             });
+        });
+        
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe skill cards and project cards
+        document.querySelectorAll('.skill-card, .project-card').forEach(card => {
+            observer.observe(card);
         });
     </script>
 </body>
