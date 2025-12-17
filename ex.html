@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe | Portfolio</title>
+    <title>Mahjabeen | Portfolio</title>
     <style>
         /* Reset and Base Styles */
         * {
@@ -66,6 +66,14 @@
         
         .nav-links a:hover {
             color: #3498db;
+        }
+        
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #2c3e50;
         }
         
         /* Hero Section */
@@ -158,6 +166,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 5px solid #3498db;
+            max-width: 100%;
         }
         
         /* Skills Section */
@@ -211,7 +220,7 @@
             transform: translateY(-10px);
         }
         
-        .project-img {
+        .project-img, .project video {
             width: 100%;
             height: 200px;
             object-fit: cover;
@@ -230,44 +239,16 @@
         .contact {
             background: #2c3e50;
             color: white;
+            text-align: center;
         }
         
         .contact .section-title h2 {
             color: white;
         }
         
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        
-        textarea.form-control {
-            height: 150px;
-            resize: vertical;
-        }
-        
-        .contact-btn {
-            background: #3498db;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .contact-btn:hover {
-            background: #2980b9;
+        .contact-info {
+            padding: 20px;
+            font-size: 20px;
         }
         
         /* Footer */
@@ -293,22 +274,169 @@
             color: #3498db;
         }
         
-        /* Responsive Design */
+        /* Responsive Design - Mobile First */
         @media (max-width: 768px) {
-            .about-content {
-                flex-direction: column;
+            /* Mobile Menu */
+            .menu-toggle {
+                display: block;
             }
             
             .nav-links {
-                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            /* Hero Section */
+            .hero {
+                padding: 120px 0 80px;
             }
             
             .hero h1 {
-                font-size: 36px;
+                font-size: 32px;
             }
             
             .hero p {
                 font-size: 18px;
+                padding: 0 15px;
+            }
+            
+            /* About Section - Column Reverse */
+            .about-content {
+                flex-direction: column-reverse;
+                gap: 30px;
+            }
+            
+            .about-text {
+                order: 2;
+                text-align: center;
+            }
+            
+            .about-image {
+                order: 1;
+            }
+            
+            .profile-img {
+                width: 250px;
+                height: 250px;
+            }
+            
+            /* Skills Section - Column Wrap */
+            .skills-container {
+                flex-direction: column;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            
+            .skill {
+                width: 100%;
+                max-width: 300px;
+                padding: 20px;
+            }
+            
+            /* Projects Section - Single Column */
+            .projects-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .project {
+                width: 100%;
+            }
+            
+            /* Contact Section */
+            .contact-info {
+                font-size: 18px;
+                padding: 10px;
+            }
+            
+            /* Section Padding */
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                margin-bottom: 30px;
+            }
+        }
+        
+        /* Small Mobile Devices */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .btn {
+                padding: 10px 25px;
+                font-size: 14px;
+            }
+            
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .about-text h3 {
+                font-size: 20px;
+            }
+            
+            .section-title h2 {
+                font-size: 24px;
+            }
+            
+            .skill i {
+                font-size: 32px;
+            }
+            
+            .social-links a {
+                font-size: 18px;
+                margin: 0 5px;
+            }
+        }
+        
+        /* Tablet Devices */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                padding: 0 30px;
+            }
+            
+            .skills-container {
+                justify-content: space-around;
+            }
+            
+            .skill {
+                width: 180px;
+            }
+            
+            .projects-container {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -320,7 +448,10 @@
         <div class="container">
             <nav>
                 <div class="logo">Mahjabeen</div>
-                <ul class="nav-links">
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
@@ -351,10 +482,10 @@
                     <h3>Hello! I'm Mahjabeen, a web designer.</h3>
                     <p>I have a passion for creating clean, beautiful, and user-friendly websites Design. I specialize in HTML and CSS.</p>
                     <p>When I'm not coding, you can find me exploring new technologies, reading tech blogs, or hiking in the mountains.</p>
-                    <p>currently I'm student of intermediate and on the other hand im doing web development course in saylani it park</p>
+                    <p>Currently I'm student of intermediate and on the other hand I'm doing web development course in Saylani IT Park</p>
                 </div>
                 <div class="about-image">
-                    <img src="pm_1763646996057_cmp.jpg" alt="John Doe" class="profile-img">
+                    <img src="pm_1763646996057_cmp.jpg" alt="Mahjabeen" class="profile-img">
                 </div>
             </div>
         </div>
@@ -382,7 +513,6 @@
                     <h3>Clean Code</h3>
                     <p>for beautiful web experiences</p>
                 </div>
-               
             </div>
         </div>
     </section>
@@ -408,17 +538,20 @@
                         <p>Design a bouquet off your choice</p>
                     </div>
                 </div>
-                
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="section contact" id="contact">
-        <div class="section-title">
-            <h2>Contact</h2>
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact</h2>
+            </div>
+            <div class="contact-info">
+                <h3>Email me: awananna105@gmail.com</h3>
+            </div>
         </div>
-         <center><h3>Email me: awananna105@gmail.com</h3></center>
     </section>
 
     <!-- Footer -->
@@ -433,5 +566,55 @@
             <p>&copy; 2025 Mahjabeen. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+            
+            // Change menu icon
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                const navLinks = document.getElementById('navLinks');
+                const menuToggle = document.getElementById('menuToggle');
+                const icon = menuToggle.querySelector('i');
+                
+                navLinks.classList.remove('active');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
